@@ -1,5 +1,5 @@
 // declaring variables.
-var startBtn = document.getElementById("start");
+var startBtn = document.getElementById("start")
 var quizEl = document.getElementById("question");
 var answersEl = document.getElementById("answers");
 var timerEl = document.getElementById("countdown");
@@ -8,8 +8,7 @@ var checkEl = document.getElementById("check");
 var endQuizEl = document.getElementById("endQuiz");
 var containerEl = document.getElementById("container");
 var scoreEl = document.getElementById("score");
-var endBtn = document.createElement("highscore")
-var clearBtn = document.createElement("clear")
+var submitEl= document.getElementById ("save")
 var score = 0
 var timeLeft = 75;
 var questionNumber = 0
@@ -121,19 +120,22 @@ function endQuiz(score) {
 
 // adds highscore to local storage
 function addHighscore(initials, score) {
+  
   var highscore = {
     initials: initials,
     score: score
   }
-  
+  console.log("highscore")
   highscoreArray.push(highscore)
   var test = JSON.stringify(highscore)
   localStorage.setItem("key", test)
 }
 
 // get highscores from local storage
-function getHighscore() {
+function getHighscore(event) {
   var highScore = JSON.parse(localStorage.getItem("key"));
+  submitEl.addEventListener("click")
+  event.preventDefault();
 }
 
 // clear highscoresfrom local storage
