@@ -141,4 +141,4 @@ function getHighscore(event) {
 // clear highscoresfrom local storage
 function clearHighscore() {
   localStorage.clear()
-}
+} 
