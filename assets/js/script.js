@@ -8,6 +8,9 @@ var checkEl = document.getElementById("check");
 var endQuizEl = document.getElementById("endQuiz");
 var containerEl = document.getElementById("container");
 var scoreEl = document.getElementById("score");
+var endBtn = document.createElement("highscore")
+var clearBtn = document.createElement("clear")
+var score = 0
 var timeLeft = 75;
 var questionNumber = 0
 var timerId = 0
@@ -57,7 +60,6 @@ function countdown() {
     } else {
       timerEl.textContent = '';
       clearInterval(timeInterval);
-      var score = timeLeft
       endQuiz(score)
     }
   }, 1000); 
@@ -88,7 +90,7 @@ function checkAnswer(selectedAnswer) {
     timeLeft -= 10
   }
   if (questionNumber == questionsArray.length - 1) {
-    var score = timeLeft
+    score = timeLeft
     timerEl.style.visibility = "hidden";
     endQuiz(score)
   }
@@ -114,6 +116,7 @@ function endQuiz(score) {
   endQuizEl.style.visibility = "visible";
   containerEl.style.visibility = "hidden";
   scoreEl.innerHTML = "Your final score is " + score
+  
 }
 
 // adds highscore to local storage
