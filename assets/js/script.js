@@ -1,3 +1,4 @@
+// declaring variables.
 var startBtn = document.getElementById("start");
 var quizEl = document.getElementById("question");
 var answersEl = document.getElementById("answers");
@@ -13,6 +14,7 @@ var timerId = 0
 startBtn.addEventListener("click", startQuiz);
 var highscoreArray = []
 
+// Object array of questions and answers.
 var questionsArray = [
   {
     question: "Who invented JavaScript?",
@@ -36,15 +38,16 @@ var questionsArray = [
   }
 ];
 
+// called when user clicks start button
 function startQuiz() {
   countdown() // call countdown function
   displayQuestions()
   sectionEl.style.visibility = "hidden"
 }
 
+// countdown function starts when quiz is called. 
 function countdown() {
   var timeInterval = setInterval(function () {
-
     if (timeLeft > 1) {
       timerEl.textContent = timeLeft + ' seconds remaining';
       timeLeft--;
@@ -57,11 +60,11 @@ function countdown() {
       var score = timeLeft
       endQuiz(score)
     }
-  }, 1000);
-
-  timerEl.style.visibility = "visible";
+  }, 1000); 
+  timerEl.style.visibility = "visible"; //timer will be revealed when button clicked 
 }
 
+// when display question function is called it will go through the array of question mentioned above.
 function displayQuestions() {
   quizEl.innerHTML = questionsArray[questionNumber].question
   answersEl.innerHTML = ""
@@ -74,6 +77,8 @@ function displayQuestions() {
   }
 }
 
+// When each answer is clicked it will display whether it is right or wrong.
+// stops quiz when for statement goes through all questions.
 function checkAnswer(selectedAnswer) {
   if (selectedAnswer == questionsArray[questionNumber].correctAnswer) {
     checkEl.innerHTML = "Correct!"
@@ -94,6 +99,8 @@ function checkAnswer(selectedAnswer) {
   }
 }
 
+// displays message if correct or incorrect for 2 seconds when user clicks button. 
+//if user clicks onto another answer before 2 seconds the next display message will appear.
 function resetCheck() {
   clearTimeout(timerId)
   timerId = setTimeout(
@@ -102,31 +109,31 @@ function resetCheck() {
     }, 2000);
 }
 
+// calls function to display score after quiz ends.
 function endQuiz(score) {
   endQuizEl.style.visibility = "visible";
   containerEl.style.visibility = "hidden";
   scoreEl.innerHTML = "Your final score is " + score
 }
 
+// adds highscore to local storage
 function addHighscore(initials, score) {
-  initials = "NR"
-  score = 75
-
   var highscore = {
     initials: initials,
     score: score
   }
-
+  
   highscoreArray.push(highscore)
   var test = JSON.stringify(highscore)
   localStorage.setItem("key", test)
 }
 
+// get highscores from local storage
 function getHighscore() {
   var highScore = JSON.parse(localStorage.getItem("key"));
-  console.log(lastGrade)
 }
 
+// clear highscoresfrom local storage
 function clearHighscore() {
   localStorage.clear()
 }
