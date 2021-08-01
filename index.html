@@ -26,11 +26,14 @@
     <section id="endQuiz" >
         <h1>All Done!</h1>
         <p id="score"></p>
-        <form>
-            <label for="msg">Enter initials</label>
-            <textarea id="msg" name="comments"></textarea>
-            <button id="save">Submit</button>
-        </form>
+            <label for="initials">Enter initials</label>
+            <input type="text" id="initials" required />
+            <button id="save" value="Submit" onclick="addHighscore(document.getElementById('initials').value)">Submit</button>
+    </section>
+    <section id="highscoresSection">
+        <h1>Highscores:</h1>
+        <div id="highscores">
+        </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

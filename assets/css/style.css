@@ -10,3 +10,7 @@ justify-content: center;
 #endQuiz {
   visibility: hidden;
 }
+
+#highscoresSection {
+  visibility: hidden;
+}

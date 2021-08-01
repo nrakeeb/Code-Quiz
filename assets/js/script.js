@@ -1,20 +1,21 @@
 // declaring variables.
 var startBtn = document.getElementById("start")
-var quizEl = document.getElementById("question");
-var answersEl = document.getElementById("answers");
-var timerEl = document.getElementById("countdown");
-var sectionEl = document.getElementById("instructions");
-var checkEl = document.getElementById("check");
-var endQuizEl = document.getElementById("endQuiz");
-var containerEl = document.getElementById("container");
+var quizEl = document.getElementById("question")
+var answersEl = document.getElementById("answers")
+var timerEl = document.getElementById("countdown")
+var instructionsEl = document.getElementById("instructions")
+var checkEl = document.getElementById("check")
+var endQuizEl = document.getElementById("endQuiz")
+var containerEl = document.getElementById("container")
 var scoreEl = document.getElementById("score");
-var submitEl= document.getElementById ("save")
+var highscoresEl = document.getElementById("highscores")
+var highscoresSectionEl = document.getElementById("highscoresSection")
 var score = 0
-var timeLeft = 75;
+var timeLeft = 75
 var questionNumber = 0
 var timerId = 0
-startBtn.addEventListener("click", startQuiz);
 var highscoreArray = []
+startBtn.addEventListener("click", startQuiz)
 
 // Object array of questions and answers.
 var questionsArray = [
@@ -44,7 +45,7 @@ var questionsArray = [
 function startQuiz() {
   countdown() // call countdown function
   displayQuestions()
-  sectionEl.style.visibility = "hidden"
+  instructionsEl.style.visibility = "hidden"
 }
 
 // countdown function starts when quiz is called. 
@@ -115,30 +116,34 @@ function endQuiz(score) {
   endQuizEl.style.visibility = "visible";
   containerEl.style.visibility = "hidden";
   scoreEl.innerHTML = "Your final score is " + score
-  
 }
 
 // adds highscore to local storage
-function addHighscore(initials, score) {
-  
+function addHighscore(initials) {
   var highscore = {
     initials: initials,
     score: score
   }
-  console.log("highscore")
+
   highscoreArray.push(highscore)
-  var test = JSON.stringify(highscore)
-  localStorage.setItem("key", test)
+  var localHighscore = JSON.stringify(highscoreArray)
+  localStorage.setItem("highscores", localHighscore)
+  getHighscore()
 }
 
 // get highscores from local storage
-function getHighscore(event) {
-  var highScore = JSON.parse(localStorage.getItem("key"));
-  submitEl.addEventListener("click")
-  event.preventDefault();
+function getHighscore() {
+  var highScore = JSON.parse(localStorage.getItem("highscores"))
+  for (var i = 0; i < highscoreArray.length; i++) {
+    let test = document.createElement("p")
+    highscoresEl.appendChild(test)
+    highscoresEl.innerHTML = highScore[i].initials + " " + highScore[i].score
+  }
+  endQuizEl.style.visibility = "hidden"
+  highscoresSection.style.visibility = "visible"
 }
 
 // clear highscoresfrom local storage
 function clearHighscore() {
   localStorage.clear()
-} 
+}
