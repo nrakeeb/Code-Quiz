@@ -3,6 +3,11 @@ display: flex;
 justify-content: center;
 }
 
+#instructions {
+  display: grid;
+  justify-content: center;
+}
+
 .check {
   visibility: hidden;  
 }

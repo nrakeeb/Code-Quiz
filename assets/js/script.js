@@ -1,4 +1,4 @@
-// declaring variables.
+// declaring variables
 var startBtn = document.getElementById("start")
 var quizEl = document.getElementById("question")
 var answersEl = document.getElementById("answers")
@@ -17,7 +17,7 @@ var timerId = 0
 var highscoreArray = []
 startBtn.addEventListener("click", startQuiz)
 
-// Object array of questions and answers.
+// object array of questions and answers
 var questionsArray = [
   {
     question: "Who invented JavaScript?",
