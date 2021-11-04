@@ -1,5 +1,5 @@
 #container {
-display: flex;
+display: grid;
 justify-content: center;
 }
 
@@ -9,13 +9,18 @@ justify-content: center;
 }
 
 .check {
-  visibility: hidden;  
+  visibility: hidden;
+  display: flex;  
 }
 
 #endQuiz {
   visibility: hidden;
+  display: grid;
+  justify-content: center;
 }
 
 #highscoresSection {
   visibility: hidden;
+  display: grid;
+  justify-content: center;
 }

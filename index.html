@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div style="display: flex; justify-content: flex-start;" id="viewHighscoresBtn">View Highscores</div>
+    <button style="display: flex; justify-content: flex-start;" class="btn-info" id="viewHighscoresBtn" onclick="getHighscore()">View Highscores</button>
     <div style="display: flex; justify-content: flex-end;" id="countdown">Timer will start when the quiz starts!</div>
     <section id="instructions">
         <h1>Coding Quiz Challenge</h1>
@@ -33,8 +33,9 @@
     </section>
     <section id="highscoresSection">
         <h1>Highscores:</h1>
-        <div id="highscores">
-        </div>
+        <div id="highscores"></div>
+        <button onclick="restartQuiz()">Go Back</button>
+        <button onclick="clearHighscore()">Clear Highscores</button>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
