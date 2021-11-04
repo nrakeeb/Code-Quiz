@@ -71,7 +71,7 @@ function countdown() {
 function displayQuestions() {
   quizEl.innerHTML = questionsArray[questionNumber].question;
   answersEl.innerHTML = "";
-  
+
   for (var i = 0; i < questionsArray[questionNumber].answers.length; i++) {
     let answerBtn = document.createElement("button");
     answersEl.appendChild(answerBtn);
@@ -186,4 +186,8 @@ function restartQuiz() {
 // clear highscoresfrom local storage
 function clearHighscore() {
   localStorage.clear();
+  highscoresEl.style.visibility = "hidden";
+  while (highscoresEl.firstChild) {
+    highscoresEl.removeChild(highscoresEl.firstChild);
+  }
 }
