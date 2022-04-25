@@ -2,7 +2,9 @@
 
 ## User Story 
 
-I have been requested to make a code quiz game on javascript through the use of DOM for my boot camp homework.
+AS A student
+I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+SO THAT I can gauge my progress compared to my peers
 
 Code quiz game can be found at: https://nrakeeb.github.io/Code-Quiz/
 
